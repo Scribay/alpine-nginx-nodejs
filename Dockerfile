@@ -14,4 +14,4 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories
     apk del gcc g++ linux-headers binutils-gold && \
     rm -rf /etc/ssl /node-${NODE_VERSION} /usr/include \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
-/usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
+    /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
