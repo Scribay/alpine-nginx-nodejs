@@ -1,6 +1,6 @@
 FROM smebberson/alpine-nginx:3.0.0
 
-ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
+ENV NODE_VERSION=v12.16.1 NPM_VERSION=6.13.4
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories && \
     apk add --update git curl make gcc g++ python linux-headers libgcc libstdc++ binutils-gold && \
