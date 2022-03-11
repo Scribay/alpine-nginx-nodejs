@@ -3,7 +3,7 @@ FROM yobasystems/alpine-nginx:latest
 ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositories && \
-    alias python='python3' && \
+    echo "alias python=python3" >> ~/.bashrc && \
     apk add --update git curl make python3 gcc g++ linux-headers libgcc libstdc++ binutils-gold && \
     curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
     cd /node-${NODE_VERSION} && \
