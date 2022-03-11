@@ -16,3 +16,4 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositorie
     rm -rf /etc/ssl /node-${NODE_VERSION} /usr/include \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
     /usr/lib/node_modules/npm/man /usr/lib/node_modules/npm/doc /usr/lib/node_modules/npm/html
+
