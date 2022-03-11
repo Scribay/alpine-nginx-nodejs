@@ -1,8 +1,8 @@
-FROM scribay/alpine-nginx:1.0.0
+FROM yobasystems/alpine-nginx:latest
 
 ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
 
-RUN echo "http://dl-4.alpinelinux.org/alpine/v3.2/main" >> /etc/apk/repositories && \
+RUN echo "http://dl-4.alpinelinux.org/alpine/v3.14/main" >> /etc/apk/repositories && \
     apk add --update git curl make gcc g++ python linux-headers libgcc libstdc++ binutils-gold && \
     curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
     cd /node-${NODE_VERSION} && \
