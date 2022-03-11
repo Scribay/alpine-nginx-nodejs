@@ -1,5 +1,4 @@
 FROM nginx
-COPY static-html-directory /usr/share/nginx/html
 
 ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
 
