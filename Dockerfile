@@ -13,7 +13,9 @@ COPY --from=node /usr/local/bin /usr/local/bin
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositories && \
     apk add --update git curl make python2 gcc g++ linux-headers libgcc libstdc++ binutils-gold && \
     cd / && \
+    npm cache clean -f && \
     npm install -g npm@${NPM_VERSION} && \
+    sudo n latest && \
     apk del gcc g++ linux-headers binutils-gold && \
     rm -rf /etc/ssl /node-${NODE_VERSION} /usr/include \
     /usr/share/man /tmp/* /var/cache/apk/* /root/.npm /root/.node-gyp \
