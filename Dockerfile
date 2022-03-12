@@ -6,7 +6,7 @@ FROM mhart/alpine-node:10.24 as node
 
 COPY --from=node /usr/lib /usr/lib
 COPY --from=node /usr/local/share /usr/local/share
-COPY --from=node /usr/locale/lib /usr/local/lib
+COPY --from=node /usr/local/lib /usr/local/lib
 COPY --from=node /usr/local/include /usr/local/include
 COPY --from=node /usr/local/bin /usr/local/bin
 
