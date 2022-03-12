@@ -12,8 +12,6 @@ COPY --from=node /usr/local/bin /usr/local/bin
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositories && \
     apk add --update git curl make python2 gcc g++ linux-headers libgcc libstdc++ binutils-gold && \
-    cd /node-${NODE_VERSION} && \
-    ./configure --prefix=/usr --without-snapshot && \
     make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
     make install && \
     cd / && \
