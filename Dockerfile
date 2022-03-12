@@ -2,10 +2,16 @@ FROM yobasystems/alpine-nginx:latest
 
 ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
 
+FROM node:${NODE_VERSION}-alpine as node
+
+COPY --from=node /usr/lib /usr/lib
+COPY --from=node /usr/local/share /usr/local/share
+COPY --from=node /usr/locale/lib /usr/local/lib
+COPY --from=node /usr/local/include /usr/local/include
+COPY --from=node /usr/local/bin /usr/local/bin
+
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositories && \
-    echo "alias python=python3" >> ~/.bashrc && \
     apk add --update git curl make python2 gcc g++ linux-headers libgcc libstdc++ binutils-gold && \
-    curl -sSL https://nodejs.org/dist/${NODE_VERSION}/node-${NODE_VERSION}.tar.gz | tar -xz && \
     cd /node-${NODE_VERSION} && \
     ./configure --prefix=/usr --without-snapshot && \
     make -j$(grep -c ^processor /proc/cpuinfo 2>/dev/null || 1) && \
