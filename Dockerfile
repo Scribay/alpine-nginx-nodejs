@@ -14,6 +14,7 @@ RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositorie
     apk add --update git curl make python2 gcc g++ linux-headers libgcc libstdc++ binutils-gold && \
     cd / && \
     npm cache clean -f && \
+    npm uninstall -g npm && \
     npm install -g npm@${NPM_VERSION} && \
     sudo n latest && \
     apk del gcc g++ linux-headers binutils-gold && \
