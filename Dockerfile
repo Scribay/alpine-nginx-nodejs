@@ -10,7 +10,7 @@ COPY --from=node /usr/local/lib /usr/local/lib
 COPY --from=node /usr/local/include /usr/local/include
 COPY --from=node /usr/local/bin /usr/local/bin
 
-RUN which npm
+RUN npm -v
 
 RUN echo "http://dl-4.alpinelinux.org/alpine/v3.15/main" >> /etc/apk/repositories && \
     apk add --update git curl make python2 gcc g++ linux-headers libgcc libstdc++ binutils-gold && \
