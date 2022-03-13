@@ -1,7 +1,11 @@
 FROM scribay/alpine-nginx-nodejs:1.0.0
 
-RUN nginx -v
+RUN apk add --no-cache nginx=1.20.2-r0 --allow-untrusted --repository=http://dl-4.alpinelinux.org/alpine/v3.15/main && \
+    rm -rf /var/cache/apk/* && \
+    chown -R nginx:www-data /var/lib/nginx
 
-RUN apk add --no-cache nginx=1.20.2-r0 --allow-untrusted --repository=http://dl-4.alpinelinux.org/alpine/v3.15/main
+# Add the files
+ADD root /
 
-RUN nginx -v
+# Expose the ports for nginx
+EXPOSE 80 443
