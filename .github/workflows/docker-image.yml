@@ -21,7 +21,7 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag scribay/alpine-nginx:1.1.0
+      run: docker build . --file Dockerfile --tag scribay/alpine-nginx-nodejs:1.1.0
       
     - name: docker push
       run: docker push ${{secrets.DOCKER_USER}}/alpine-nginx-nodejs:1.1.0
