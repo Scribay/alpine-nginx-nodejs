@@ -4,5 +4,7 @@ RUN apk add --no-cache nginx=1.20.2-r0 --allow-untrusted --repository=http://dl-
     rm -rf /var/cache/apk/* && \
     chown -R nginx:www-data /var/lib/nginx
     
+RUN mkdir -p /run/nginx
+    
 # Expose the ports for nginx
 EXPOSE 80 443
