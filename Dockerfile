@@ -2,10 +2,12 @@ FROM yobasystems/alpine-nginx:latest
 
 ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
 
-RUN npm -v
 
 
 FROM mhart/alpine-node:10.24 as node
+
+RUN npm -v
+
 
 COPY --from=node /usr/lib /usr/lib
 COPY --from=node /usr/local/share /usr/local/share
