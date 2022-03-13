@@ -4,10 +4,10 @@ ENV NODE_VERSION=v10.15.3 NPM_VERSION=6.4.1
 
 
 
-FROM mhart/alpine-node:10.24 as node
+FROM jameskyburz/node:10.15.3-alpine as node
 
 RUN npm -v
-
+RUN node -v
 
 COPY --from=node /usr/lib /usr/lib
 COPY --from=node /usr/local/share /usr/local/share
